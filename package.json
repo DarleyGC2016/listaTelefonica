@@ -1,0 +1,36 @@
+{
+  "name": "listaTelefonica",
+  "version": "1.0.0",
+  "description": "Curso realizado no canal do Rodrigo Branas no Youtube\r  Terá que fazer o download nesses sites: https://angularjs.org/ e https://getbootstrap.com/docs/5.1/getting-started/download/",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "dependencies": {
+    "grunt": "^1.5.2",
+    "grunt-contrib-clean": "^2.0.1",
+    "grunt-contrib-connect": "^3.0.0",
+    "grunt-contrib-copy": "^1.0.0",
+    "grunt-contrib-cssmin": "^4.0.0",
+    "grunt-contrib-jshint": "^3.2.0",
+    "grunt-contrib-uglify": "^5.2.1",
+    "grunt-contrib-watch": "^1.1.0",
+    "grunt-htmllint": "^0.3.0",
+    "grunt-karma": "^4.0.2"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DarleyGC2016/listaTelefonica.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/DarleyGC2016/listaTelefonica/issues"
+  },
+  "homepage": "https://github.com/DarleyGC2016/listaTelefonica#readme"
+}

@@ -1,24 +1,24 @@
 <!--<div class="jumbotron" ng-controller="listaTelefonicaCtrl">-->
-<div class="jumbotron">
-    <h3>{{app}}</h3>
+<div class="jumbotron" ng-init="vm.init()">
+    <h3>{{vm.app}}</h3>
     <ui-alert mostrar="mostrar" title="Aconteceu um problema" message="message">            
     </ui-alert>
     <input class="form-control" type="text" name="criterioDeBusca" ng-Model="criterioDeBusca"
         ng-model-options="{updateOn: 'default blur', debbounce:{default: 500, blur: 0}}"
         placeholder="O que você está buscando?">
-    <table ng-show = "contatos.length > 0" class="table">
+    <table ng-show = "vm.contatos.length > 0" class="table">
         <tr>
             <th></th>
             <th>Serial</th>
-            <th><a  ng-click="ordenarPor('nome')">Nome</a></th>
-            <th><a  ng-click="ordenarPor('telefone')">Telefone</a></th>
+            <th><a  ng-click="vm.ordenarPor('nome')">Nome</a></th>
+            <th><a  ng-click="vm.ordenarPor('telefone')">Telefone</a></th>
             <th>Operadora</th>
             <th>Preço</th>
             <th>Data</th>
         </tr>
-        <tr ng-class="{'selecionado negrito':contato.selecionado}"
-            ng-repeat="contato in contatos | filter: {nome:criterioDeBusca} | orderBy:ordenar:sentido track by contato.id"> 
-            <td><input type="checkbox" ng-model="contato.selecionado" ng-click = "verificarSelecionado(contatos)"/></td>
+        <tr ng-class="{'selecionado negrito': contato.selecionado}"
+            ng-repeat="contato in vm.contatos | filter: {nome:criterioDeBusca} | orderBy:vm.ordenar:vm.sentido"> 
+            <td><input type="checkbox" ng-model="contato.selecionado" ng-click="vm.addSelecionado(contato.selecionado)"></td>
             <td>{{contato.serial}}</td>
             <td><a href="#!/detalhesContato/{{contato.id}}">{{contato.nome | name | elipses:20}}</a></td>
             <td>{{contato.telefone}}</td>
@@ -27,8 +27,9 @@
             <td>{{contato.data | date:'dd/MM/yyyy'}}</td>
         </tr>
     </table>
+    
     <a class="btn btn-primary btn-block" href="#!/novoContato">Novo Contato</a>
     <button class="btn btn-danger btn-block"
-            ng-click="apagarContatos(contatos)"
-            ng-show="hasContatoSelecionado">Apagar</button>
+            ng-click="vm.apagarContatos(vm.contatos)"
+            ng-if="vm.flag">Apagar</button>
 </div>
