@@ -1,0 +1,53 @@
+<div class="jumbotron">
+    <form name="vm.contatoForm">
+        <!-- <label for="nome"> -->
+             <input
+                   class="form-control" 
+                   type="text"
+                   name="nome"
+                   id="nome"
+                   ng-Model="vm.contato.nome"
+                   placeholder="nome" required minlength="10">
+        <!-- </label> -->
+        <input 
+            class="form-control"
+            type="text"
+            name="telefone"                  
+            id="telefone"
+            ng-model="vm.contato.telefone"
+            placeholder="telefone"
+            ng-required="true" ng-pattern="/^\d{4,5}-\d{4}$/" >
+        <input  class="form-control" type="text" name="data" id="data" ng-model="vm.contato.data" placeholder="Data"  ui-date/>
+        <select 
+            class="form-control"
+            ng-model="vm.contato.operadora"                  
+            name="operadora"                  
+            ng-options="operadora.nome + ' ( ' + (operadora.preco | currency) + ' )' for operadora in vm.operadoras | orderBy:'nome'"
+            ng-required="true">
+            <option value="">Selecione uma operadora</option>
+        </select>
+    </form>
+    <div ng-show="vm.contatoForm.nome.$dirty" ng-messages="vm.contatoForm.nome.$error">
+        <div ng-message = "required" class="alert alert-danger">
+            Preencher o campo nome
+        </div>
+        <div ng-message = "minlength" class="alert alert-danger">
+            O nome possui no minimo 10 caracter
+        </div>
+  
+    </div>
+    <div ng-show="vm.contatoForm.telefone.$dirty" ng-messages="vm.contatoForm.telefone.$error">
+        <div ng-message = "required" class="alert alert-danger">
+            Preencher o campo telefone
+        </div>
+        <div ng-message = "pattern" class="alert alert-danger">
+            O telefone deve estar nesse formato ddddd-dddd ou dddd-dddd
+        </div>
+    </div>
+    <div ng-show="vm.contatoForm.operadora.$dirty" ng-messages="vm.contatoForm.operadora.$error">
+        <div ng-message = "required" class="alert alert-danger">
+                Escolher a operdadora 
+        </div>
+    </div>
+    <button class="btn btn-primary btn-block" ng-click="vm.addContato(vm.contato)" ng-disabled="vm.contatoForm.$invalid">Salvar</button>
+</div>
