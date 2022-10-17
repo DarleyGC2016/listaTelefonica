@@ -14,7 +14,8 @@
         vm.textoNome=textoNome;
         vm.minNome=minNome;
         vm.max = 50;
-
+        vm.texto = 'O Darley é lindo!';
+       console.log(vm.texto);
         
 
         vm.operadoras = operadoras.data;   
