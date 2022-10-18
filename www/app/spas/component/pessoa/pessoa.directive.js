@@ -6,12 +6,14 @@ angular.module('listaTelefonica')
     function TelefoniaPessoa() {
         return {
             restrict: 'E',
-            //replace: true,
+            replace: true,
             scope:{
-                nome: '=?textoNome'
+                nome: '=?textoNome',
+                data: '=?dataNascimento',
+                telefone: '=?telefonePessoal'
               
             },
-            //bindToController: true,
+            bindToController: true,
             controller: 'PessoaController',
             controllerAs: 'vm',
             templateUrl: 'app/spas/component/pessoa/pessoa.html'
