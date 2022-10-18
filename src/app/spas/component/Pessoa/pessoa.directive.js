@@ -8,8 +8,8 @@ angular.module('listaTelefonica')
             restrict: 'E',
             //replace: true,
             scope:{
-                // nome: '=?textoNome'
-                nome: '='
+                nome: '=?textoNome'
+              
             },
             //bindToController: true,
             controller: 'PessoaController',
